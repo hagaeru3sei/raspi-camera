@@ -1,0 +1,2 @@
+picamera==1.13
+wiringpi==2.44.5
