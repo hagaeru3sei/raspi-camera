@@ -2,7 +2,7 @@
 
 ### Overview
 
-Begin to capture a picture/movie by infrared sensor.
+Begin to capture a picture/movie by an infrared sensor.
 
 ### How to use
 
