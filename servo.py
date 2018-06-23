@@ -3,7 +3,7 @@ import RPi.GPIO as GPIO
 import threading
 from time import sleep
 
-# BCM
+# BCM (board 32, 33)
 gp_out_servo1 = 12
 gp_out_servo2 = 13
 
@@ -20,7 +20,7 @@ class Servo(object):
     operation_interval_sec = 0.007
 
     def __init__(self):
-        GPIO.setmode(GPIO.BOARD)
+        GPIO.setmode(GPIO.BCM)
         GPIO.setup(gp_out_servo1, GPIO.OUT)
         GPIO.setup(gp_out_servo2, GPIO.OUT)
         self.servo1 = GPIO.PWM(gp_out_servo1, self.pwm_hz)
@@ -73,16 +73,3 @@ class Servo(object):
             self.servo2.stop()
         GPIO.cleanup()
 
-
-def main():
-    servo = Servo()
-    threading.Thread(target=servo.generate).start()
-
-    while servo.is_in_operation:
-        sleep(0.1)
-
-    return 0
-
-
-if __name__ == "__main__":
-    main()
